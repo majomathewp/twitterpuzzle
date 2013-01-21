@@ -1,0 +1,44 @@
+body {
+    font-size: 12px;
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica;
+    background: rgb(239,233,17);
+    margin: 0;
+    overflow: auto;
+}
+
+h1 {
+    margin: 20px 0;
+    padding: 0;
+    font-weight: normal;
+    text-shadow: 0 1px 0 hsla(0,0%,100%,0.5);
+
+}
+
+.punch {
+
+    color:#FFFFFF;
+    background: #000000;
+}
+
+ul {
+list-style: none;
+}
+ul li{
+display: inline;
+}
+
+img {
+
+    border: 3px solid #FFF;
+    width: 100px;
+    height: 100px;
+    background:#444;
+    position: relative;
+    top:0;
+    left:0;
+    overflow:hidden;
+    color:#FFF;
+    border-radius:100px;
+    line-height: 24px;
+    text-align: center;
+}
