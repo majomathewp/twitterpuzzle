@@ -37,8 +37,9 @@ for($k=0;$k<$tcount;$k++)
 		
 
 			$jesus[$tr]['count'] = $str1[$p]['followers_count'];		
-			$jesus[$tr]['name'] = $str1[$p]['screen_name'];		
-
+			$jesus[$tr]['name'] = $str1[$p]['screen_name'];	
+			$jesus[$tr]['profile_image'] = stripcslashes($str1[$p]['profile_image_url_https']);
+			$jesus[$tr]['profile_image'] = str_replace("_normal.jpeg", ".jpeg", $jesus[$tr]['profile_image']);
 			$tr++;
 		
 		
@@ -52,9 +53,10 @@ for($k=0;$k<$tcount;$k++)
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Twitter Illuminati</title>
-  <link rel="stylesheet" href="style.css?version=1" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="../css/style.css?version=1" type="text/css" media="screen" charset="utf-8">
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1">
-  <script type="text/javascript" src="menu.js?version=1" charset="utf-8"></script>
+
+  <script type="text/javascript" src="../js/menu.js?version=1" charset="utf-8"></script>
 <style>
 nav > a {
 background: url(<?php echo "'https://api.twitter.com/1/users/profile_image/".$handl.".json?size=original'"?>);
@@ -63,8 +65,8 @@ background-size: 300px;
 background-position:center;
 background-repeat:no-repeat;
 }
-
 </style>
+
 </head>
 <body>
   
@@ -101,10 +103,10 @@ background-repeat:no-repeat;
 
 	for($k=0;$k<12;$k++)
 	{
-		if($jesus[$k]['count']!=0)
+		if($jesus[$k]['count']>0)
 		{
 
-			echo "<li><a href='#'><img src = 'https://api.twitter.com/1/users/profile_image/".$jesus[$k]['name'].".json?size=original' title='".$jesus[$k]['count']."' width='100' height='100'/> </a></li> ";
+			echo "<li><a href='#'><img src = '".$jesus[$k]['profile_image']."' title='".$jesus[$k]['count']."' width='100' height='100' /></a></li> ";
 			
 		
 
@@ -126,7 +128,7 @@ background-repeat:no-repeat;
    
   </div>
  
-  
+
   <script type="text/javascript" charset="utf-8">
     var m = new Menu(document.querySelector('#arc'), { radius: 130 });
     var app = document.querySelector('#app');
